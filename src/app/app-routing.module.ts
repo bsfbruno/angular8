@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'footer', 
     loadChildren: './footer/footer.module#FooterModule'
   },
+  {
+    path: 'estados',
+    loadChildren: './estados/estados.module#EstadosModule'
+  },
   //se a rota for vazia
   { path: '',
   pathMatch: 'full',
