@@ -1,12 +1,24 @@
 import { Usuario } from './usuario/usuario.domain';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  constructor() { }
+  private url = 'http://localhost:8080/usuario'
+
+  constructor(private http: HttpClient) { }
+
+  public salvar(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.url, usuario);
+  }
+
+  public listar(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.url);
+  }
 
   public getUsuario(): Usuario{
     let usuario = new Usuario();

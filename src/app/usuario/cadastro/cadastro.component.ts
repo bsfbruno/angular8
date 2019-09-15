@@ -1,3 +1,4 @@
+import { UsuarioService } from './../../usuario.service';
 import { Usuario } from './../usuario.domain';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,12 +11,19 @@ export class CadastroComponent implements OnInit {
 
   public usuario: Usuario = new Usuario();
 
-  constructor() { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }
 
   public salvar() {
-    alert("Salvo com sucesso!");
+    this.usuarioService.salvar(this.usuario).subscribe(
+      response => {
+        alert("Salvo com sucesso!");
+      },
+      error => {
+        alert("Erro ao inserir usuário");
+      }
+    );
   }
 }
