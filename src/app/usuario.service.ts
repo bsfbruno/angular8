@@ -21,6 +21,10 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(this.url);
   }
 
+  public delete(id: string): Observable<any> {
+    return this.http.delete(this.url + "/" + id);
+  }
+
   public getUsuario(): Usuario{
     let usuario = new Usuario();
     usuario.nome = "User";

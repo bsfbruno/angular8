@@ -3,14 +3,18 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Ações</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-usuario>
         <tr>
             <td>{{usuario.nome}}</td>
             <td>{{usuario.email}}</td>
+            <td><button pButton class="ui-button-danger" label="Excluir" (click)="deletar(usuario.id)"></button></td>
         </tr>
     </ng-template>
 </p-table>
 <br/>
 <button pButton routerLink="add" label="Cadastro"></button>
+
+<p-confirmDialog header="Atenção" icon="pi pi-exclamation-triangle"></p-confirmDialog>
