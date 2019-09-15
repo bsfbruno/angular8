@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/components/common/menuitem';
 
 @Component({
   selector: 'app-menu',
@@ -7,16 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  public text: string;
+  items: MenuItem[];
 
   constructor() { }
 
   ngOnInit() {
-    this.text = "Property Binding";
-  }
-
-  alterarText() {
-    this.text = "Two Way DataBinding"
+    this.items = [
+      {
+        label: 'Home',
+        icon: 'pi pi-fw pi-user',
+        routerLink:'home'     
+      },
+      {
+        label: 'Usuário',
+        icon: 'pi pi-fw pi-user',
+        routerLink:'usuario'        
+      }
+    ];
   }
 
 }
